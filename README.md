@@ -21,6 +21,9 @@ npm run start
 
 ブラウザで`http://127.0.0.1:4000`にアクセスします。
 
+スクショのような画面が表示できればOK
+<img src="https://user-images.githubusercontent.com/25321380/204584975-9f98b913-2987-4af6-9cf9-b7d0534f25d6.png" width=800>
+
 ## JIRAのタスク
 
 - [JIRAのタスク](https://joint-dev.atlassian.net/browse/FC-107)
