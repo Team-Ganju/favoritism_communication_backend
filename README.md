@@ -8,7 +8,7 @@
 - スクリプトを用意したのでプロジェクトルートで実行してください
 
 ```
-./build.sh
+./scripts/build.sh
 ```
 
 ## Firebase Emulator起動（Flutterアプリと連携）
