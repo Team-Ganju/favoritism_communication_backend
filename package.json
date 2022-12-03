@@ -1,0 +1,26 @@
+{
+  "name": "favoritism_communication_backend",
+  "version": "1.0.0",
+  "description": "## 環境構築",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "firebase emulators:start",
+    "start-importing": "firebase emulators:start --import=firebase-backup",
+    "exports": "firebase emulators:export firebase-backup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Ganju/favoritism_communication_backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-Ganju/favoritism_communication_backend/issues"
+  },
+  "homepage": "https://github.com/Team-Ganju/favoritism_communication_backend#readme",
+  "dependencies": {
+    "typescript": "^4.9.3"
+  }
+}
