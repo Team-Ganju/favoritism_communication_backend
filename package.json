@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Team-Ganju/favoritism_communication_backend/issues"
   },
-  "homepage": "https://github.com/Team-Ganju/favoritism_communication_backend#readme"
+  "homepage": "https://github.com/Team-Ganju/favoritism_communication_backend#readme",
+  "dependencies": {
+    "typescript": "^4.9.3"
+  }
 }
