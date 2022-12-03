@@ -15,6 +15,20 @@ git@github.com:Team-Ganju/favoritism_communication_backend.git
 ./scripts/build.sh
 ```
 
+※ビルドしたら次回からは下の作業をするのみです。
+
+## functionsをビルドする
+
+- `functions`ディレクトリに移動してビルドします
+
+```
+cd functions
+npm run build
+
+// ビルドしたらプロジェクトルートに戻ります
+cd $ROOT
+```
+
 ## Firebase Emulator起動（Flutterアプリと連携）
 
 - firebase emulatorをビルドしてブラウザでコンソールを確認します。
@@ -27,6 +41,20 @@ npm run start
 
 スクショのような画面が表示できればOK
 <img src="https://user-images.githubusercontent.com/25321380/204584975-9f98b913-2987-4af6-9cf9-b7d0534f25d6.png" width=800>
+
+## 実装方針など共有事項
+
+- [Firebase Authenticationについて](./docs/firebaseAuthentication.md)
+- [Cloud Firestoreについて](./docs/firestore.md)
+- [Firestorageについて](./docs/firestorage.md)
+- [Cloud Functionsについて](./docs/functions.md)
+- [remoteConfig.md]()
+- [cloudMessaging.md]()
+- [firebaseCrashlytics.md]()
+- [firebaseAnalytics.md]()
+
+## 設計関連
+- [アプリのシステム構成図](https://github.com/Team-Ganju/favoritism_communication/blob/develop/docs/app-design/app-system-diagram/app-system-diagram.md)
 
 ## JIRAのタスク
 
