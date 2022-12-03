@@ -3,7 +3,11 @@
 
 ## 環境構築
 
-- 後で詳しく書く
+- まずローカルにクローンしてきます
+
+```
+git@github.com:Team-Ganju/favoritism_communication_backend.git
+```
 
 - スクリプトを用意したのでプロジェクトルートで実行してください
 
