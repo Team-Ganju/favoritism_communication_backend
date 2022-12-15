@@ -1,9 +1,3 @@
-// describe("サンプル", () => {
-//     test("サンプルテスト", async () => {
-//         expect(1 + 2).toBe(3);
-//     });
-// });
-
 import * as firebase from "@firebase/testing";
 import * as fs from 'fs';
 
@@ -50,5 +44,63 @@ describe("Firestoreセキュリティルール", () => {
         const user = userRef(db).doc("test");
         await firebase.assertSucceeds(user.set({ name: "太郎" }));
         await firebase.assertSucceeds(user.get());
+    });
+});
+
+const correctUserData = {
+    name: "suzuki taro",
+    gender: "male",
+    age: 30
+};
+
+describe("ユーザ認証情報の検証", () => {
+    test("自分のuidと同様のドキュメントIDのユーザ情報だけを閲覧、作成、編集、削除可能", async () => {
+        // taroで認証を持つDBの作成
+        const db = createAuthApp({ uid: "taro" });
+
+        // taroでusersコレクションへの参照を取得
+        const userDocumentRef = db.collection("users").doc("taro");
+
+        // 自分のuidと同様のドキュメントIDのユーザ情報を追加可能
+        await firebase.assertSucceeds(userDocumentRef.set(correctUserData));
+
+        // 自分のuidと同様のドキュメントIDのユーザ情報を閲覧可能
+        await firebase.assertSucceeds(userDocumentRef.get());
+
+        // 自分のuidと同様のドキュメントIDのユーザ情報を編集可能
+        await firebase.assertSucceeds(
+            userDocumentRef.update({ name: "SUZUKI TARO" })
+        );
+
+        // 自分のuidと同様のドキュメントIDのユーザ情報を削除可能
+        await firebase.assertSucceeds(userDocumentRef.delete());
+    });
+
+    test("自分のuidと異なるドキュメントは閲覧、作成、編集、削除ができない", async () => {
+        // 事前にadmin権限で別ユーザのデータ準備
+        createAdminApp()
+            .collection("users")
+            .doc("taro")
+            .set(correctUserData);
+
+        // hanakoで認証を持つDBの作成
+        const db = createAuthApp({ uid: "hanako" });
+
+        // taroでusersコレクションへの参照を取得
+        const userDocumentRef = db.collection("users").doc("taro");
+
+        // 自分のuidと異なるドキュメントIDのユーザ情報を追加不可
+        await firebase.assertFails(userDocumentRef.set(correctUserData));
+
+        // 自分のuidと異なるドキュメントIDのユーザ情報を閲覧不可
+        await firebase.assertFails(userDocumentRef.get());
+
+        // 自分のuidと異なるドキュメントIDのユーザ情報を編集不可
+        await firebase.assertFails(
+            userDocumentRef.update({ name: "SUZUKI TARO" })
+        );
+
+        // 自分のuidと異なるドキュメントIDのユーザ情報を削除不可
+        await firebase.assertFails(userDocumentRef.delete());
     });
 });
