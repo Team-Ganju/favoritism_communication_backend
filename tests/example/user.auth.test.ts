@@ -38,14 +38,6 @@ describe("Firestoreセキュリティルール", () => {
         await Promise.all(firebase.apps().map(app => app.delete()));
     });
 
-    // 以降にテストを記載
-    // test("認証がなくとも読み書きが可能", async () => {
-    //     const db = createAuthApp();
-    //     const user = userRef(db).doc("test");
-    //     await firebase.assertSucceeds(user.set({ name: "太郎" }));
-    //     await firebase.assertSucceeds(user.get());
-    // });
-
     const correctUserData = {
         name: "suzuki taro",
         gender: "male",
@@ -104,6 +96,3 @@ describe("Firestoreセキュリティルール", () => {
         });
     });
 });
-
-
-
