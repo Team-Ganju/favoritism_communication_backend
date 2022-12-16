@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "firebase emulators:start",
-    "start-importing": "firebase emulators:start --import=firebase-backup",
-    "exports": "firebase emulators:export firebase-backup"
+    "start:i": "firebase emulators:start --import=firebase-backup",
+    "exports": "firebase emulators:export firebase-backup",
+    "start:wq": "firebase emulators:start --export-on-exit=./firebase-backup",
+    "start:wq/i": "firebase emulators:start --import=firebase-backup --export-on-exit=./firebase-backup"
   },
   "repository": {
     "type": "git",
