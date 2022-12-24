@@ -12,7 +12,8 @@
     "typescript": "^4.9.4"
   },
   "scripts": {
-    "test": "yarn jest"
+    "test": "yarn jest",
+    "build": "./security-test-build.sh"
   },
   "jest": {
     "moduleFileExtensions": [
